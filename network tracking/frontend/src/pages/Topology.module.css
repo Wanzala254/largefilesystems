@@ -1,0 +1,317 @@
+.topologyContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.topologyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #1e293b;
+  background: #111827;
+}
+
+.topologyHeader h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.controlBtn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controlBtn:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+.zoomLevel {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.topologyView {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  margin: 1rem;
+  border-radius: 12px;
+}
+
+.svgContainer {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.svgContainer:active {
+  cursor: grabbing;
+}
+
+.deviceNode {
+  cursor: pointer;
+  transition: all 0.2s;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.deviceNode:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.4));
+}
+
+.deviceLabel {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #e2e8f0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.deviceIp {
+  font-size: 10px;
+  fill: #94a3b8;
+}
+
+.connectBtn {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.connectBtn:hover {
+  fill: #2563eb;
+  transform: scale(1.1);
+}
+
+.connectText {
+  font-size: 12px;
+  font-weight: bold;
+  fill: white;
+  pointer-events: none;
+}
+
+.detailsPanel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 300px;
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.detailsPanel h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #f1f5f9;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailLabel {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status.online {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.status.offline {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.status.degraded {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.status.unknown {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.4);
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+.error {
+  color: #ef4444;
+  padding: 1rem;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  margin: 1rem;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.modal h3 {
+  margin: 0 0 1rem 0;
+  color: #f1f5f9;
+}
+
+.modal p {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.deviceList {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.deviceOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 0.25rem;
+}
+
+.deviceOption:hover {
+  background: #1f2937;
+}
+
+.deviceOption.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deviceOption.disabled:hover {
+  background: transparent;
+}
+
+.deviceName {
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.deviceType {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: #0b1220;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #1e293b;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1e293b;
+}
+
+.modalActions button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modalActions button:hover {
+  background: #2563eb;
+}
+
+/* Scrollbar styling */
+.deviceList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.deviceList::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+
+.deviceList::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.deviceList::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

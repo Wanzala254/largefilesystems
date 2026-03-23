@@ -1,0 +1,50 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#000813"/>
+      <stop offset="0.55" stop-color="#001127"/>
+      <stop offset="1" stop-color="#07223b"/>
+    </linearGradient>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1100 190) rotate(90) scale(520 380)">
+      <stop stop-color="#2a85d8" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#2a85d8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="nodeGlow" x="-200%" y="-200%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="2.2"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#core)"/>
+
+  <g stroke="#66bfff" stroke-opacity="0.36" stroke-width="1.5">
+    <path d="M560 170L980 120L1130 420L760 570"/>
+    <path d="M1130 420L1450 530L1330 760L840 820"/>
+    <path d="M980 120L1340 220L1450 530"/>
+    <path d="M760 570L1130 420L1330 760"/>
+    <path d="M840 820L1330 760"/>
+    <path d="M1450 530L1570 360"/>
+  </g>
+
+  <g fill="#9fd8ff">
+    <circle cx="560" cy="170" r="4.5"/>
+    <circle cx="980" cy="120" r="5.5"/>
+    <circle cx="1130" cy="420" r="6"/>
+    <circle cx="760" cy="570" r="5"/>
+    <circle cx="1450" cy="530" r="6"/>
+    <circle cx="1330" cy="760" r="5.5"/>
+    <circle cx="840" cy="820" r="4.5"/>
+    <circle cx="1570" cy="360" r="4"/>
+  </g>
+
+  <g fill="#9fd8ff" filter="url(#nodeGlow)" opacity="0.7">
+    <circle cx="560" cy="170" r="5.5"/>
+    <circle cx="980" cy="120" r="6.5"/>
+    <circle cx="1130" cy="420" r="7"/>
+    <circle cx="760" cy="570" r="6"/>
+    <circle cx="1450" cy="530" r="7"/>
+    <circle cx="1330" cy="760" r="6.5"/>
+    <circle cx="840" cy="820" r="5.5"/>
+    <circle cx="1570" cy="360" r="5"/>
+  </g>
+</svg>

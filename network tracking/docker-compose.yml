@@ -1,0 +1,25 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: network-backend
+    environment:
+      TOKEN_SECRET: ${TOKEN_SECRET:-change-this-token-secret}
+      SQLITE_DB_PATH: /data/network-tracker.db
+      PORT: 3001
+    volumes:
+      - sqlite_data:/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: network-frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:

@@ -1,0 +1,473 @@
+/* Dashboard Page Styles */
+
+.dashboard {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.lastUpdated {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.centered {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--danger);
+  padding: 1rem;
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  margin: 1rem 0;
+}
+
+/* Health Card Styles */
+.healthCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.healthHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.healthScoreSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.healthLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.healthScoreContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.healthScore {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.healthStatusIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.healthStatus {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.healthFactors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.factor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.factorLabel {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Metrics Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metricCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.metricIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.metricContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metricLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.unit {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Status Indicator */
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+.statusIcon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.statusText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Alerts Section */
+.alertsList {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.alertItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.alertItem:hover {
+  background: var(--bg-secondary);
+  transform: translateX(4px);
+}
+
+.alertBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 60px;
+  text-align: center;
+}
+
+.alertWarning {
+  background: rgba(255, 193, 7, 0.1);
+  color: #f7b955;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.alertError {
+  background: rgba(248, 81, 73, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(248, 81, 73, 0.3);
+}
+
+.alertInfo {
+  background: rgba(56, 111, 235, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(56, 111, 235, 0.3);
+}
+
+.alertTime {
+  margin-left: auto;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Traffic Chart */
+.trafficChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 160px;
+  background: linear-gradient(180deg, var(--bg-tertiary), var(--bg-secondary));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.trafficChart::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.trafficChart::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.trafficBar {
+  flex: 1;
+  min-width: 6px;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dim));
+  box-shadow: 0 2px 4px rgba(88, 166, 255, 0.3);
+}
+
+.trafficBar:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+/* Traffic bar height classes for different data ranges */
+.barSmall { 
+  background: linear-gradient(180deg, #6e7681, #30363d);
+  box-shadow: 0 2px 4px rgba(110, 118, 129, 0.3);
+  height: 10% !important;
+}
+
+.barLow { 
+  background: linear-gradient(180deg, #8b949e, #484f58);
+  box-shadow: 0 2px 4px rgba(139, 148, 158, 0.3);
+  height: 20% !important;
+}
+
+.barMedium { 
+  background: linear-gradient(180deg, #58a6ff, #388bfd66);
+  box-shadow: 0 2px 4px rgba(88, 166, 255, 0.3);
+  height: 40% !important;
+}
+
+.barHigh { 
+  background: linear-gradient(180deg, #238636, #1f6feb);
+  box-shadow: 0 2px 4px rgba(35, 134, 54, 0.3);
+  height: 60% !important;
+}
+
+.barMax { 
+  background: linear-gradient(180deg, #d29922, #f7b955);
+  box-shadow: 0 2px 4px rgba(210, 153, 34, 0.3);
+  height: 80% !important;
+}
+
+/* Chart Legend */
+.chartLegend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Color Classes */
+.colorSuccess {
+  color: var(--success);
+}
+
+.colorDanger {
+  color: var(--danger);
+}
+
+.colorAccent {
+  color: var(--accent);
+}
+
+.colorWarning {
+  color: var(--warning);
+}
+
+.colorTextSecondary {
+  color: var(--text-secondary);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .healthHeader {
+    grid-template-columns: 1fr;
+  }
+  
+  .healthFactors {
+    grid-template-columns: 1fr;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .metricCard {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .trafficChart {
+    height: 200px;
+    padding: 1rem;
+  }
+  
+  .chartLegend {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .healthScore {
+    font-size: 2.5rem;
+  }
+  
+  .metricValue {
+    font-size: 1.5rem;
+  }
+  
+  .trafficChart {
+    height: 180px;
+    padding: 0.75rem;
+  }
+  
+  .trafficBar {
+    min-width: 4px;
+  }
+}
