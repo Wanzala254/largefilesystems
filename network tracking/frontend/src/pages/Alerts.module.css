@@ -1,0 +1,242 @@
+/* Alerts Page Styles */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.subtitle {
+  margin: 0.25rem 0 0 0;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.criticalBadge {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+  border-color: var(--accent);
+}
+
+.filterButtonActive {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.centered {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: var(--danger);
+  padding: 1rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  color: var(--success);
+  margin-bottom: 1rem;
+}
+
+.emptyText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.emptySubtext {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.alertsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alertCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.alertHeader {
+  margin-bottom: 0.75rem;
+}
+
+.alertTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.alertTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.alertMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+
+.severityBadge {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+}
+
+.alertType {
+  color: var(--text-secondary);
+}
+
+.deviceName {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.alertStatus {
+  flex-shrink: 0;
+}
+
+.statusSelect {
+  padding: 0.375rem 0.75rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.statusSelect:hover,
+.statusSelect:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.alertMessage {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.alertDetails {
+  padding: 0.5rem;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.alertFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.alertTime {
+  flex: 1;
+}
+
+.deleteButton {
+  padding: 0.375rem 0.75rem;
+  background: var(--danger);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.deleteButton:hover {
+  background: var(--danger-dark, darkred);
+}
+/* Severity-based color classes */
+.borderLow {
+  border-left-color: var(--text-secondary);
+}
+
+.borderMedium {
+  border-left-color: var(--warning);
+}
+
+.borderHigh {
+  border-left-color: var(--accent);
+}
+
+.borderCritical {
+  border-left-color: var(--danger);
+}
+
+.badgeLow {
+  background: var(--text-secondary);
+}
+
+.badgeMedium {
+  background: var(--warning);
+}
+
+.badgeHigh {
+  background: var(--accent);
+}
+
+.badgeCritical {
+  background: var(--danger);
+}

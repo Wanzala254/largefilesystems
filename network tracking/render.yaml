@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: network-tracking-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    autoDeploy: false
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/stats
+    envVars:
+      - key: TOKEN_SECRET
+        generateValue: true
+      # Optional email recovery config (set later in Render dashboard if needed):
+      # - key: SMTP_HOST
+      #   value: smtp.example.com
+      # - key: SMTP_PORT
+      #   value: 587
+      # - key: SMTP_USER
+      #   value: user@example.com
+      # - key: SMTP_PASS
+      #   sync: false
+      # - key: SMTP_FROM
+      #   value: user@example.com
+
+  - type: web
+    name: network-tracking-web
+    runtime: static
+    rootDir: frontend
+    plan: free
+    autoDeploy: false
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      # Set this to your backend URL after first backend deploy:
+      # Example: https://network-tracking-api.onrender.com/api
+      - key: VITE_API_BASE
+        value: https://network-tracking-api.onrender.com/api
