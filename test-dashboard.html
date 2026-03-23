@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Test</title>
+    <link rel="stylesheet" href="test-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Network Dashboard Test Suite</h1>
+        <p>Test the dashboard functionality and API connectivity.</p>
+
+        <div class="test-section">
+            <div class="test-title">Network Status</div>
+            <div class="network-status">
+                <span class="status-dot" id="networkDot"></span>
+                <span id="networkStatus">Checking...</span>
+            </div>
+            <button onclick="checkNetwork()">Check Network Status</button>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">API Connectivity Test</div>
+            <div class="api-test">
+                <div>
+                    <label for="apiUrl">API Base URL:</label>
+                    <input type="text" id="apiUrl" class="api-input" value="http://localhost:3001/api" placeholder="Enter API base URL">
+                    <br><br>
+                    <button onclick="testAPI()">Test API Connection</button>
+                    <button onclick="testStats()">Test Stats Endpoint</button>
+                    <button onclick="testHealth()">Test Health Endpoint</button>
+                </div>
+                <div>
+                    <label>API Response:</label>
+                    <div id="apiResult" class="api-result">Click a test button to see results...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">Dashboard Fallback Test</div>
+            <p>Simulate API unavailability and test dashboard fallback functionality.</p>
+            <button onclick="simulateOffline()">Simulate Offline Mode</button>
+            <button onclick="simulateOnline()">Simulate Online Mode</button>
+            <div id="fallbackResult" class="status warning" style="display: none;">
+                Dashboard fallback mode activated - showing mock data
+            </div>
+        </div>
+
+        <div class="test-section">
+            <div class="test-title">Webstock Blocking Test</div>
+            <p>Test scenarios where webstock might block API requests.</p>
+            <button onclick="testBlockedAPI()">Test Blocked API Request</button>
+            <div id="blockResult" class="status warning" style="display: none;">
+                API blocked - dashboard should show fallback data
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Network status monitoring
+        function checkNetwork() {
+            const dot = document.getElementById('networkDot');
+            const status = document.getElementById('networkStatus');
+            
+            if (navigator.onLine) {
+                dot.className = 'status-dot';
+                status.textContent = 'Online - Network connection available';
+                document.getElementById('networkStatus').className = 'status success';
+            } else {
+                dot.className = 'status-dot offline';
+                status.textContent = 'Offline - No network connection';
+                document.getElementById('networkStatus').className = 'status error';
+            }
+        }
+
+        // API connectivity test
+        async function testAPI() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const result = document.getElementById('apiResult');
+            
+            try {
+                const response = await fetch(`${apiUrl}/healthz`, {
+                    method: 'GET',
+                    timeout: 5000
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.innerHTML = `✅ API is accessible\n\nResponse: ${JSON.stringify(data, null, 2)}`;
+                    result.className = 'api-result status success';
+                } else {
+                    result.innerHTML = `❌ API returned error: ${response.status} ${response.statusText}`;
+                    result.className = 'api-result status error';
+                }
+            } catch (error) {
+                result.innerHTML = `❌ API connection failed: ${error.message}\n\nThis could indicate:\n- Webstock blocking the request\n- Server is down\n- Network issues`;
+                result.className = 'api-result status error';
+            }
+        }
+
+        // Test specific endpoints
+        async function testStats() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const result = document.getElementById('apiResult');
+            
+            try {
+                const response = await fetch(`${apiUrl}/stats`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.innerHTML = `✅ Stats endpoint working\n\nData: ${JSON.stringify(data, null, 2)}`;
+                    result.className = 'api-result status success';
+                } else {
+                    result.innerHTML = `❌ Stats endpoint error: ${response.status}`;
+                    result.className = 'api-result status error';
+                }
+            } catch (error) {
+                result.innerHTML = `❌ Stats endpoint failed: ${error.message}`;
+                result.className = 'api-result status error';
+            }
+        }
+
+        async function testHealth() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const result = document.getElementById('apiResult');
+            
+            try {
+                const response = await fetch(`${apiUrl}/health`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.innerHTML = `✅ Health endpoint working\n\nData: ${JSON.stringify(data, null, 2)}`;
+                    result.className = 'api-result status success';
+                } else {
+                    result.innerHTML = `❌ Health endpoint error: ${response.status}`;
+                    result.className = 'api-result status error';
+                }
+            } catch (error) {
+                result.innerHTML = `❌ Health endpoint failed: ${error.message}`;
+                result.className = 'api-result status error';
+            }
+        }
+
+        // Simulate offline mode
+        function simulateOffline() {
+            document.getElementById('fallbackResult').style.display = 'block';
+            document.getElementById('fallbackResult').textContent = 'Dashboard fallback mode activated - showing mock data';
+            document.getElementById('fallbackResult').className = 'status warning';
+        }
+
+        function simulateOnline() {
+            document.getElementById('fallbackResult').style.display = 'none';
+        }
+
+        // Test blocked API scenario
+        async function testBlockedAPI() {
+            const result = document.getElementById('apiResult');
+            const blockResult = document.getElementById('blockResult');
+            
+            try {
+                // Try to access a blocked URL
+                const response = await fetch('http://localhost:3001/api/stats', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    blockResult.textContent = 'API is accessible - no blocking detected';
+                    blockResult.className = 'status success';
+                    blockResult.style.display = 'block';
+                } else {
+                    blockResult.textContent = 'API blocked or restricted - dashboard fallback should activate';
+                    blockResult.className = 'status error';
+                    blockResult.style.display = 'block';
+                }
+            } catch (error) {
+                blockResult.textContent = `API blocked by webstock or firewall: ${error.message}`;
+                blockResult.className = 'status error';
+                blockResult.style.display = 'block';
+            }
+        }
+
+        // Initialize network status
+        checkNetwork();
+        
+        // Monitor network changes
+        window.addEventListener('online', checkNetwork);
+        window.addEventListener('offline', checkNetwork);
+    </script>
+</body>
+</html>
